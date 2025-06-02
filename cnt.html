@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <style>
+        *{
+    margin:0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+.content{
+     background-image: linear-gradient(rgba(37, 37, 37, 0.4), rgba(27, 26, 26, 0.4)), 
+    url('images/uu.jpg');
+   
+    height:650px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 20px;
+  position: fixed; /* This fixes it to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  border-bottom: 1px solid #ddd;
+}
+
+.header img {
+  height: 50px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.donate-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.donate-btn:hover {
+  background-color: #c0392b;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.dropdown-content a {
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-item:hover .dropdown-content,
+.nav-item.active .dropdown-content {
+  display: flex;
+}
+
+.uu h1{
+    text-align: center;
+    font-size: 150px;
+    color: white;
+    padding-top: 250px;
+ 
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 380px;
+    height: 450px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+    .uu h1 {
+        font-size: 80px;
+        padding-top: 150px;
+    }
+}
+
+.lk{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    color: white;
+}
+.lk a{
+    color: white;
+    text-decoration: none;
+
+}
+.yse{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+
+    
+    
+}
+.twe{
+   height: 200px;
+   width: 300px;
+  
+     box-shadow: 5px 5px 10px 5px #888888;;
+}
+.twe i{
+    margin-left: 140px;
+    margin-top:30px;
+
+}
+.twe h1{
+    text-align: center;
+    margin-top: 30px;
+}
+.twe p{
+    text-align: center;
+    margin-top: 20px;
+}
+.ppp h1{
+    text-align: center;
+    font-size: 80px;
+    text-transform: capitalize;
+    margin-top: 40px;
+}
+.ppp p{
+    text-align: center;
+    font-size:20px;
+    margin-top: 30px;
+}
+form {
+  max-width: 600px;
+  margin: auto;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+  width: 500px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #46525c;
+}
+
+label span {
+  color: red;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.invalid, textarea.invalid {
+  border-color: red;
+  background-color: #fff0f0;
+}
+
+textarea.invalid {
+  border-color: goldenrod;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:hover{
+    border: none;
+    background-color: gold;
+}
+
+.trd{
+    text-align: center;
+    font-size: 80px;
+    text-transform: capitalize;
+    margin-top: 70px;
+}
+
+.ppps{
+
+background-image: linear-gradient(rgba(42, 38, 38, 0.4), rgba(0, 0, 0, 0.4)),
+url('images/ft.webp');
+background-repeat: no-repeat;
+background-position: center;
+
+background-size: cover;
+height: 550px;
+
+}
+.yyyk h3{
+color: white;
+font-size: 28px;
+padding-top: 40px;
+margin-left: 33px;
+text-decoration: underline;
+color: yellow;
+
+}
+.yyyk h1{
+padding-top: 40px;
+color: white;
+font-size: 60px;
+margin-left: 33px;
+
+}
+.yyyk p{
+color: white;
+font-size: 20px;
+margin-left: 30px;
+margin-top: 20px;
+}
+.btn {
+    background-color:goldenrod;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  
+  .btn:hover {
+    background-color: gold;
+  }
+
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-location, .footer-menu {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+  
+  .footer h3 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+  }
+  
+  .footer p, .footer li {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ffcc00;
+  }
+  
+  .footer-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+  
+  }
+  .ggg{
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+  .lk {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+ 
+  .map {
+    padding-bottom: 75%; /* taller aspect ratio for narrow screens */
+  }
+
+
+
+  .yse {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .twe {
+    width: 90%;
+    height: auto;
+    padding: 20px 10px;
+    box-shadow: 3px 3px 8px #888888;
+  }
+
+  .twe i {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+  }
+
+
+  .twe h1, .twe p {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .ppp h1, .trd {
+    font-size: 36px;
+    margin-top: 20px;
+  }
+
+  .ppp p {
+    font-size: 16px;
+    padding: 0 15px;
+    margin-top: 15px;
+  }
+
+  form {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .ppps {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .yyyk h1, .yyyk h3 {
+    font-size: 28px;
+    margin-left: 0;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .yyyk p {
+    font-size: 16px;
+    margin: 15px 10px;
+    text-align: center;
+  }
+
+  .btn {
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-location, .footer-menu {
+    margin: 15px 0;
+  }
+
+  .footer h3 {
+    font-size: 20px;
+  }
+
+  .footer p, .footer li {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  .ggg {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+  
+
+    </style>
+    
+    <header class="header" id="mainHeader">
+      <img src="images/Logo.jpg" alt="Logo"/>
+  
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+  
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+  
+        <div class="nav-item">
+          <div style="display: flex; align-items: center;">
+            <a href="a.html" class="about-link">About</a>
+            <button class="dropdown-toggle" id="dropdownToggle">&#9662;</button>
+          </div>
+          <div class="dropdown-content" id="dropdownContent">
+            <a href="volunteer.html">Our Team</a>
+            <a href="mission.html">Mission</a>
+            <a href="project.html">History</a>
+          </div>
+        </div>
+  
+        <a href="project.html">Projects</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="cnt.html">Contact</a>
+        <button class="donate-btn">Donate Now</button>
+      </nav>
+    </header>
+
+
+    <div class="main">
+      <div class="content">
+        <div class="uu">
+        <h1>Contact us</h1>
+     </div>
+    </div>
+  </div>
+ 
+
+    <div class="ppp">
+        <h1>useful information</h1>
+        <p>Important resources, guidelines,
+             and insights to help you navigate and make the most of our services<br> and opportunities.</p>
+    </div>
+    <div class="yse">
+        <div class="twe">
+           
+              <i class="fa-solid fa-location-dot"></i>
+            <h1>Address</h1>
+            <p>Madarsa Nizamia faiz-ul-uloom ,Dharmora Village,Tehsil Surankote Poonch,poonch JK10, JK185121 </p>
+        </div>
+
+        <div class="twe">
+           <i class="fa-solid fa-clock"></i>
+            <h1>work hours</h1>
+            <p>monday to saturday :8am - 8pm<br>
+                sunday off</p>
+        </div>
+
+        <div class="twe">
+           <i class="fa-solid fa-phone"></i>
+            <h1>phone Numbers</h1>
+            <p>9622378719</p>
+            
+        </div>
+        
+    </div>
+    <div class="trd">
+      <h2>send us a message</h2>
+    </div>
+    <section class="ggg">
+     
+    <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full Name <span>*</span></label>
+          <input type="text" id="fullName" />
+          <small class="error">This field is required.</small>
+        </div>
+    
+        <div class="form-group">
+          <label for="email">Email Address <span>*</span></label>
+          <input type="email" id="email" />
+          <small class="error">This field is required.</small>
+        </div>
+    
+        <div class="form-group">
+          <label for="subject">Subject <span>*</span></label>
+          <input type="text" id="subject" />
+          <small class="error">This field is required.</small>
+        </div>
+    
+        <div class="form-group">
+          <label for="message">Message <span>*</span></label>
+          <textarea id="message" rows="5"></textarea>
+          <small class="error">This field is required.</small>
+        </div>
+    
+        <button type="submit">Submit</button>
+      </form>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d28013.181538632776!2d77.
+        27499579999999!3d28.
+        6403193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v17488606599
+        08!5m2!1sen!2sin" width="600" height="450" style="border:0;"
+         width="600" height="450" style="border:0;" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+
+           
+    <div class="ppps">
+        <div class="yyyk">
+            <h3>become a volunteer</h3>
+            <h1>join us for a better<br> life and beautifull<br> feature</h1>
+            <p>A better life and a brighter future start with support, opportunities,<br>
+                 and teamwork. We strive to empower individuals, uplift communities, and <br>
+                 provide essential resources for growth and progress.</p>
+                 <a href="cnt.html" class="btn">apply now</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-container">
+          
+          <div class="footer-location">
+            <h3>Our Location</h3>
+            <p>Madarsa Nizamia faiz-ul-uloom,<br>Dharmora Village,Tehsil Surankote<br> Poonch,poonch JK10, JK185121</p>
+            <p>Email: mhq00786@gmail.com</p>
+            <p>Phone: 9622378719</p>
+          </div>
+  
+  
+          <div class="footer-location">
+            <h3>Our vision</h3>
+           <p>Empowering tribal communities<br> through education,
+             health<br> and skill development.</p>
+            
+          </div>
+          
+  
+         
+          <div class="footer-menu">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="a.html">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="cnt.html">Contact</a></li>
+              <li><a href="mission.html">mission</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+      </footer>
+
+      <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const fields = ["fullName", "email", "subject", "message"];
+  let isValid = true;
+
+  fields.forEach((id) => {
+    const input = document.getElementById(id);
+    const error = input.nextElementSibling;
+
+    if (!input.value.trim()) {
+      input.classList.add("invalid");
+      error.style.display = "block";
+      isValid = false;
+    } else {
+      input.classList.remove("invalid");
+      error.style.display = "none";
+    }
+  });
+
+  if (isValid) {
+    alert("Form submitted successfully!");
+    // Optionally reset the form
+    // document.getElementById("contactForm").reset();
+  }
+});
+
+      </script>
+
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const dropdownToggle = document.getElementById('dropdownToggle');
+  const dropdownContent = document.getElementById('dropdownContent');
+
+  // Toggle mobile menu
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Toggle dropdown in mobile
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    dropdownContent.classList.toggle('show');
+  });
+</script>
+
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("rNGZOey5CAqiiM7Bj"); // Replace with your EmailJS public key
+  })();
+
+  document.getElementById('contactform').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_1yugxli', 'template_0owrk6n', this)
+      .then(function() {
+        alert('Email sent successfully!');
+      }, function(error) {
+        alert('Failed to send email: ' + JSON.stringify(error));
+      });
+  });
+</script>
+
+  
+</body>
+</html>

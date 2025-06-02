@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+
+    }
+
+    
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 20px;
+  position: fixed; /* This fixes it to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  border-bottom: 1px solid #ddd;
+}
+
+.header img {
+  height: 50px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.donate-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.donate-btn:hover {
+  background-color: #c0392b;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.dropdown-content a {
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-item:hover .dropdown-content,
+.nav-item.active .dropdown-content {
+  display: flex;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 380px;
+    height: 450px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+}
+
+
+
+.uu h1{
+  text-align: center;
+  font-size: 150px;
+  color: white;
+  padding-top: 250px;
+
+}
+
+
+  .content{
+     background-image: linear-gradient(rgba(37, 37, 37, 0.4), rgba(27, 26, 26, 0.4)), 
+    url('images/yyl.png');
+    height:750px;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.uu h1{
+    text-align: center;
+    font-size: 150px;
+    color: white;
+    padding-top: 250px;
+ 
+}
+
+.lk{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    color: white;
+}
+.lk a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+    .faq-section {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 80px;
+      margin-bottom: 20px;
+      margin-top: 60px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-label {
+      display: block;
+      cursor: pointer;
+      padding: 15px;
+      background: #f1f1f1;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .faq-label::after{
+      content: '+';
+      position: absolute;
+      right: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      background: #fff;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 15px;
+    }
+
+    input[type="checkbox"]:checked + .faq-label::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+
+    input[type="checkbox"]:checked + .faq-label + .faq-answer {
+      max-height: 300px;
+      padding: 15px;
+    }
+    .team{
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 50px;
+    }
+    .team-members img{
+        height:300px;
+        width:300px;
+
+    }
+    .team-members h1{
+      text-align: center;
+
+    }
+    .team-members p{
+      text-align: center;
+    }
+    .vltr{
+      text-align: center;
+      margin-top: 80px;
+      font-size: 80px;
+    }
+
+
+     .ppp{
+
+    background-image: linear-gradient(rgba(42, 38, 38, 0.4), rgba(0, 0, 0, 0.4)),
+    url('images/ft.webp');
+   background-repeat: no-repeat;
+   background-position: center;
+
+   background-size: cover;
+   height: 550px;
+
+  }
+  .yyyk h3{
+    color: white;
+    font-size: 28px;
+    padding-top: 40px;
+    margin-left: 33px;
+    text-decoration: underline;
+    color: yellow;
+    
+  }
+  .yyyk h1{
+    padding-top: 40px;
+    color: white;
+    font-size: 60px;
+    margin-left: 33px;
+
+  }
+  .yyyk p{
+    color: white;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+  .btn {
+    background-color:goldenrod;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  
+  .btn:hover {
+    background-color: gold;
+  }
+
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-location, .footer-menu {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+  
+  .footer h3 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+  }
+  
+  .footer p, .footer li {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ffcc00;
+  }
+  
+  .footer-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+  }
+  
+
+  @media (max-width: 768px) {
+  .content {
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .uu h1 {
+    font-size: 60px;
+    padding-top: 150px;
+  }
+
+  .lk {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .faq-title {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .faq-label {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+
+  .team {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .team-members img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .vltr {
+    font-size: 40px;
+    margin-top: 40px;
+  }
+
+  .ppp {
+    height: auto;
+    padding: 20px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .yyyk h1 {
+    font-size: 36px;
+    margin-left: 10px;
+  }
+
+  .yyyk h3 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .yyyk p {
+    font-size: 16px;
+    margin: 10px;
+    
+  }
+
+  .btn {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-location, .footer-menu {
+    margin: 10px 0;
+  }
+
+  .footer h3 {
+    font-size: 20px;
+  }
+
+  .footer p, .footer li {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+</style>
+<body>
+ <header class="header" id="mainHeader">
+    <img src="images/Logo.jpg" alt="Logo"/>
+  
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+  
+    <nav class="nav-links" id="navLinks">
+     
+      <a href="index.html">Home</a>
+  
+      <div class="nav-item">
+        <div style="display: flex; align-items: center;">
+          <a href="a.html" class="about-link">About</a>
+          <button class="dropdown-toggle" id="dropdownToggle">&#9662;</button>
+        </div>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="volunteer.html">Our Team</a>
+          <a href="mission.html">Mission</a>
+          <a href="project.html">History</a>
+        </div>
+      </div>
+  
+      <a href="project.html">Projects</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="cnt.html">Contact</a>
+      <a href="tr.html" class="donate-btn">Donate Now</a>
+    </nav>
+  </header>
+
+
+  
+  <div class="main">
+    <div class="content">
+      <div class="uu">
+      <h1>our volunteer</h1>
+   </div>
+  </div>
+</div>
+
+
+    <h3 class="vltr">our volunteer</h3>
+    <div class="team">
+        <div class="team-members">
+            <img src="images">
+            <h1>manzoor ahmad</h1>
+            <p>president</p>
+        </div>
+
+        <div class="team-members">
+          <img src="images">
+          <h1>manzoor ahmed</h1>
+          <p>vice president</p>
+      </div>
+
+      <div class="team-members">
+        <img src="images/">
+        <h1>manzoor ahmed</h1>
+        <p>secretary</p>
+    </div>
+    </div>
+
+
+    <div class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+    
+        <div class="faq-item">
+          <input type="checkbox" id="faq1">
+          <label for="faq1" class="faq-label">What is the purpose of this organization?</label>
+          <div class="faq-answer">
+            <p>Our organization is dedicated to [your mission, e.g., education, skill development, women empowerment, etc.
+               We aim to create a positive impact by supporting communities through various initiatives.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <input type="checkbox" id="faq2">
+          <label for="faq2" class="faq-label">How can I become a volunteer?</label>
+          <div class="faq-answer">
+            <p>You can become a volunteer by filling out our registration form.
+               After that, we will guide you through a short orientation session and assign you to a suitable project.</p>
+          </div>
+        </div>
+    
+        <div class="faq-item">
+          <input type="checkbox" id="faq3">
+          <label for="faq3" class="faq-label">How can I support this organization?</label>
+          <div class="faq-answer">
+            <p>You can support us in multiple ways, such as:<br>
+
+              Volunteering your time and skills<br>
+              Donating to our initiatives<br>
+              Spreading awareness about our work<br>
+              Every small effort helps us in our mission!</p>
+          </div>
+        </div>
+    
+      </div>
+
+
+
+        
+    <div class="ppp">
+      <div class="yyyk">
+          <h3>become a volunteer</h3>
+          <h1>join us for a better<br> life and beautifull<br> feature</h1>
+          <p>A better life and a brighter future start with support, opportunities,<br>
+               and teamwork. We strive to empower individuals, uplift communities, and <br>
+               provide essential resources for growth and progress.</p>
+               <a href="apply.html" class="btn">apply now</a>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="footer-container">
+        
+        <div class="footer-location">
+         <h3>Our Location</h3>
+            <p>Madarsa Nizamia faiz-ul-uloom,<br>Dharmora Village,Tehsil Surankote<br> Poonch,poonch JK10, JK185121</p>
+            <p>Email: mhq00786@gmail.com</p>
+            <p>Phone: 9622378719</p>
+        </div>
+
+
+        <div class="footer-location">
+          <h3>Our vision</h3>
+         <p>Empowering tribal communities<br> through education,
+           health<br> and skill development.</p>
+          
+        </div>
+        
+
+       
+        <div class="footer-menu">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="a.html">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      const dropdownToggle = document.getElementById('dropdownToggle');
+      const dropdownContent = document.getElementById('dropdownContent');
+  
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+  
+      // Toggle dropdown in mobile
+      dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownContent.classList.toggle('show');
+      });
+    </script>
+
+</body>
+</html>

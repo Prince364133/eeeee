@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
+</head>
+<body>
+    <style>
+         *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+
+    }
+  
+  
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px 20px;
+  position: fixed; /* This fixes it to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  border-bottom: 1px solid #ddd;
+}
+
+.header img {
+  height: 50px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.donate-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.donate-btn:hover {
+  background-color: #c0392b;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.dropdown-content a {
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-item:hover .dropdown-content,
+.nav-item.active .dropdown-content {
+  display: flex;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 380px;
+    height: 450px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+}
+
+
+
+
+
+  .content{
+     background-image: linear-gradient(rgba(37, 37, 37, 0.4), rgba(27, 26, 26, 0.4)), 
+    url('images/projects.jpg');
+    height:650px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+   
+}
+
+.uu h1{
+    text-align: center;
+    font-size: 150px;
+    color: white;
+    padding-top: 250px;
+ 
+}
+@media (max-width: 768px) {
+    .uu h1 {
+        font-size: 80px;
+        padding-top: 150px;
+    }
+}
+
+
+
+.lk{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    color: white;
+   
+}
+.lk a{
+    color: white;
+    text-decoration: none;
+}
+.lll img{
+    height:300px;
+    width:350px;
+    margin-top: 70px;
+
+}
+.lll h1{
+    text-align: center;
+    margin-top: 40px;
+   
+}
+.lll p{
+    text-align: center;
+    margin-top: 30px;
+}
+.rrr {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+}
+.btnr{
+    margin-left: 140px;
+    margin-top: 30px;
+    height:40px;
+    width:100px;
+    border-radius: 20px;
+    background-color: yellow;
+}
+.btnr:hover{
+    background-color: gold;
+}
+
+
+/* --------- Responsive adjustments --------- */
+
+/* For screens smaller than 768px (tablet & mobile) */
+@media (max-width: 768px) {
+    .lk {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .rrr {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .lll img {
+        margin-top: 40px;
+    }
+}
+
+/* For screens smaller than 480px (mobile) */
+@media (max-width: 480px) {
+    .lll h1 {
+        font-size: 24px;
+    }
+
+    .lll p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .btnr {
+        width: 80px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+.ppps{
+
+background-image: linear-gradient(rgba(42, 38, 38, 0.4), rgba(0, 0, 0, 0.4)),
+url('images/ft.webp');
+background-repeat: no-repeat;
+background-position: center;
+
+background-size: cover;
+height: 550px;
+
+}
+.yyyk h3{
+color: white;
+font-size: 28px;
+padding-top: 40px;
+margin-left: 33px;
+text-decoration: underline;
+color: yellow;
+
+}
+.yyyk h1{
+padding-top: 40px;
+color: white;
+font-size: 60px;
+margin-left: 33px;
+
+}
+.yyyk p{
+color: white;
+font-size: 20px;
+margin-left: 30px;
+margin-top: 20px;
+}
+.btn {
+    background-color:goldenrod;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  
+  .btn:hover {
+    background-color: gold;
+  }
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-location, .footer-menu {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+  
+  .footer h3 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+  }
+  
+  .footer p, .footer li {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ffcc00;
+  }
+  
+  .footer-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+  } 
+
+  @media (max-width: 480px) {
+    .yyyk h1 {
+        font-size: 30px;
+    }
+
+    .yyyk h3 {
+        font-size: 20px;
+    }
+
+    .yyyk p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .footer p, .footer li {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+}
+
+    </style>
+
+     <header class="header" id="mainHeader">
+    <img src="images/Logo.jpg" alt="Logo"/>
+  
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+  
+    <nav class="nav-links" id="navLinks">
+     
+      <a href="index.html">Home</a>
+  
+      <div class="nav-item">
+        <div style="display: flex; align-items: center;">
+          <a href="a.html" class="about-link">About</a>
+          <button class="dropdown-toggle" id="dropdownToggle">&#9662;</button>
+        </div>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="volunteer.html">Our Team</a>
+          <a href="mission.html">Mission</a>
+          <a href="#history">History</a>
+        </div>
+      </div>
+  
+      <a href="project.html">Projects</a>
+      <a href="volunteer.html ">Volunteer</a>
+      <a href="cnt.html">Contact</a>
+      <a href="tr.html" class="donate-btn">Donate Now</a>
+    </nav>
+  </header>
+   <div class="main">
+    
+    <div class="content">
+      <div class="uu">
+      <h1>our project</h1>
+   </div>
+  </div>
+</div>
+   
+
+    <div class="rrr">
+        <div class="lll">
+            <img src="images/wmt.jpg">
+            <h1>women empowerment</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/healthcamp.jpg">
+            <h1>health camp</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/education.avif">
+            <h1>education</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+    </div>
+
+
+    <div class="rrr">
+        <div class="lll">
+            <img src="images/tailor.avif">
+            <h1>tailoring & cutting</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/food.jpg">
+            <h1>food distribution</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/envg.jpeg">
+            <h1>environment</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+    </div>
+
+    <div class="rrr">
+        <div class="lll">
+            <img src="images/statiojnmary.webp">
+            <h1>stationary</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/livl.jpg   ">
+            <h1>livelihood</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+
+        <div class="lll">
+            <img src="images/cnt.avif">
+            <h1>women empowerment</h1>
+            <p>raised:rs 3000,000 / goal:rs:7000,000</p>
+            <button class="btnr">donate now</button>
+        </div>
+    </div>
+
+    <div class="ppps">
+        <div class="yyyk">
+            <h3>become a volunteer</h3>
+            <h1>join us for a better<br> life and beautifull<br> feature</h1>
+            <p>A better life and a brighter future start with support, opportunities,<br>
+                 and teamwork. We strive to empower individuals, uplift communities, and <br>
+                 provide essential resources for growth and progress.</p>
+                 <a href="apply.html" class="btn">apply now</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-container">
+          
+          <div class="footer-location">
+            <h3>Our Location</h3>
+            <p>123 Main Street,<br>Cityville, ST 12345</p>
+            <p>Email: info@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+          </div>
+  
+  
+          <div class="footer-location">
+             <h3>Our Location</h3>
+            <p>Madarsa Nizamia faiz-ul-uloom,<br>Dharmora Village,Tehsil Surankote<br> Poonch,poonch JK10, JK185121</p>
+            <p>Email: mhq00786@gmail.com</p>
+            <p>Phone: 9622378719</p>
+            
+          </div>
+          
+  
+         
+          <div class="footer-menu">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="a.html">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="cnt.html">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+      </footer>
+
+      <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownContent = document.getElementById('dropdownContent');
+    
+        // Toggle mobile menu
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+    
+        // Toggle dropdown in mobile
+        dropdownToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          dropdownContent.classList.toggle('show');
+        });
+      </script>
+
+</body>
+</html>
